@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	request.setCharacterEncoding("utf-8");
+	String id = request.getParameter("id");
 %>
 <!DOCTYPE html>
 <html>
@@ -10,21 +10,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<fieldset>
-		<legend>취미</legend>
-			<form action="quiz1_result.jsp">
-				<label for="ck">리본 공예</label><input type="checkbox" name="ck" value="리본 공예"/><br />
-				<label for="ck">와이어 공예</label><input type="checkbox" name="ck" value="와이어 공예"/><br />
-				<label for="ck">비즈 공예</label><input type="checkbox" name="ck" value="비즈 공예"/><br />
-				<label for="ck">점토 공예</label><input type="checkbox" name="ck" value="점토 공예"/><br />
-				<label for="ck">종이 공예</label><input type="checkbox" name="ck" value="종이 공예"/><br />
-				<label for="ck">도자기 공예</label><input type="checkbox" name="ck" value="도자기 공예"/><br />
-				<label for="ck">양초 만들기</label><input type="checkbox" name="ck" value="양초 만들기"/><br />
-				<label for="ck">스템프 공예</label><input type="checkbox" name="ck" value="스템프 공예"/><br />
-				<label for="ck">가죽 공예</label><input type="checkbox" name="ck" value="가죽 공예"/><br />
-				<label for="ck">인형옷 만들기</label><input type="checkbox" name="ck" value="인형옷 만들기"/><br />
-	</fieldset>
-		<button type="submit">전송</button>
+	<form action="<%=application.getContextPath()%>/quiz1Controller">
+	<input type="text" name="id" placeholder="ID"
+	value="<% if(id==null) { id="";} else {id=id;}%>" /><br />
+	<input type="password" name="pw" placeholder="Password" /><br />
+	<input type="radio" name="radio" id="radio" /><label for="radio">아이디 기억하기</label><br />
+	<button>Login</button>
+	
 	</form>
 </body>
 </html>
