@@ -30,19 +30,17 @@ public class quiz1sessionController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		String ra = request.getParameter("radio");
+	
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("userId");
+		String url = "/quiz1/quiz1.jsp";
 		
-		if(ra == "on") {
-			HttpSession session = request.getSession();
-			String id = (String)session.getAttribute("id");
-		
-		RequestDispatcher rdp = request.getRequestDispatcher("/quiz1/quiz1.jsp");
-		rdp.forward(request, response);
+		if(id != null) {
+			url = "/quiz1/quiz1.jsp";
 		}
 		
-		
-		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		RequestDispatcher rdp = request.getRequestDispatcher(url);
+		rdp.forward(request, response);
 	}
 
 	/**
