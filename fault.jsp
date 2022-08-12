@@ -8,6 +8,6 @@
 </head>
 <body>
 	<h3>로그인에 실패하였습니다</h3>
-	<a href="quiz1.jsp">뒤로가기</a>
+	<a href="/quiz1/quiz1.jsp">뒤로가기</a>
 </body>
 </html>
